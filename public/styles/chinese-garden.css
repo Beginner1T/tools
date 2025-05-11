@@ -1,0 +1,311 @@
+/* 内容与之前提供的中国田园风格CSS相同 */
+:root {
+    --primary: #2a5c3c;
+    --secondary: #8c4a2f;
+    --accent: #d1a370;
+    --light-bg: #f8f4e9;
+    --dark-bg: #5a3921;
+    --text-color: #333333;
+    --highlight: rgba(42, 92, 60, 0.1);
+    --shadow: 0 2px 15px rgba(90, 57, 33, 0.1);
+}
+
+/* 其余样式保持不变... */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "楷体", "STKaiti", "华文楷体", serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    line-height: 1.8;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M30,50 Q50,30 70,50 T90,50" fill="none" stroke="%232a5c3c" stroke-width="0.5" opacity="0.1"/></svg>');
+}
+
+/* 左侧导航栏 - 仿古书卷样式 */
+.sidebar {
+    width: 280px;
+    background: linear-gradient(to right, #f8f4e9, #e8dfc9);
+    padding: 30px 20px;
+    border-right: 1px solid var(--secondary);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 2px 0 10px rgba(90, 57, 33, 0.1);
+}
+
+.sidebar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M10,10 L90,10 M10,30 L90,30 M10,50 L90,50 M10,70 L90,70 M10,90 L90,90" stroke="%238c4a2f" stroke-width="0.3" opacity="0.1"/></svg>');
+    pointer-events: none;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--accent);
+    position: relative;
+}
+
+.logo::after {
+    content: "❀";
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--secondary);
+    font-size: 20px;
+    background-color: var(--light-bg);
+    padding: 0 10px;
+}
+
+.logo h1 {
+    color: var(--primary);
+    font-size: 28px;
+    font-weight: normal;
+    letter-spacing: 5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.logo p {
+    color: var(--secondary);
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.nav-menu {
+    list-style: none;
+}
+
+.nav-item {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.nav-item a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 12px 20px;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    border-left: 3px solid transparent;
+}
+
+.nav-item a:hover {
+    color: var(--primary);
+    border-left: 3px solid var(--primary);
+    background-color: var(--highlight);
+}
+
+.nav-item.active a {
+    color: var(--secondary);
+    border-left: 3px solid var(--secondary);
+    font-weight: bold;
+}
+
+.nav-item a::before {
+    content: "·";
+    position: absolute;
+    left: 5px;
+    color: var(--accent);
+}
+
+/* 右侧内容区 - 仿宣纸效果 */
+.main-content {
+    flex: 1;
+    padding: 40px;
+    position: relative;
+    background-color: var(--light-bg);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,20 Q30,10 40,20 T60,20 T80,20" fill="none" stroke="%238c4a2f" stroke-width="0.3" opacity="0.05"/></svg>');
+}
+
+.section-title {
+    color: var(--dark-bg);
+    font-size: 26px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: normal;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+    letter-spacing: 2px;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+}
+
+/* 工具卡片 - 仿古书签样式 */
+.tools-grid {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+    gap: 25px;
+}
+
+.tool-card {
+    background-color: white;
+    border-radius: 0;
+    padding: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(139, 74, 47, 0.2);
+    border-top: 3px solid var(--accent);
+}
+
+.tool-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(90, 57, 33, 0.15);
+}
+
+.tool-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    opacity: 0.3;
+}
+
+.tool-name {
+    color: var(--primary);
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: normal;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.tool-name::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 1px;
+    background-color: var(--accent);
+}
+
+.tool-desc {
+    color: var(--text-color);
+    font-size: 15px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.tool-link {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: transparent;
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.tool-link:hover {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.tool-link::before {
+    content: "→";
+    position: absolute;
+    right: -15px;
+    transition: all 0.3s ease;
+}
+
+.tool-link:hover::before {
+    right: 4px;
+}
+
+/* 山水点缀元素 */
+.landscape-decoration {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,96 C150,40 350,140 600,80 C850,20 1050,100 1200,60 L1200,120 L0,120 Z" fill="%232a5c3c" opacity="0.1"/></svg>');
+    background-size: cover;
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        padding: 20px;
+        border-right: none;
+        border-bottom: 1px solid var(--accent);
+    }
+    
+    .nav-menu {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    
+    .nav-item {
+        margin-bottom: 0;
+        margin-right: 10px;
+        white-space: nowrap;
+    }
+    
+    .nav-item a {
+        padding: 10px 15px;
+    }
+    
+    .main-content {
+        padding: 25px;
+    }
+    
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 导航栏活动项指示器 */
+.nav-item.active a {
+    color: var(--secondary);
+    border-left: 3px solid var(--secondary);
+    font-weight: bold;
+    background-color: var(--highlight);
+}
